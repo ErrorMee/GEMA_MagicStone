@@ -82,7 +82,7 @@ package
 			m_Starling.stage.stageHeight = Constants.STAGE_HEIGHT;
 			m_Starling.simulateMultitouch  = false;
 			m_Starling.enableErrorChecking = Capabilities.isDebugger;
-			m_Starling.showStats = true;
+//			m_Starling.showStats = true;
 			
 			m_Starling.addEventListener(starling.events.Event.ROOT_CREATED, 
 				function(event:Object, app:MainRoot):void

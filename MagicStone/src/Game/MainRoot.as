@@ -44,7 +44,7 @@ package Game
 			//bg
 			var bgImage:Image = new Image(background);
 			bgImage.smoothing = TextureSmoothing.NONE;
-			addChild(bgImage);
+//			addChild(bgImage);
 			
 			//main loading bar
 			m_ProgressBar = new ProgressBar;
