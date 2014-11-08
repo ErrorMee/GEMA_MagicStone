@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<flexLibProperties includeAllClasses="true" useMultiPlatformConfig="true" version="3">
+  <includeClasses>
+    <classEntry path="FightModule.model.FightConst"/>
+    <classEntry path="FightModule.panel.GridPanel"/>
+    <classEntry path="FightModule.model2048.TouchPanel"/>
+    <classEntry path="FightModule.element.CellItem"/>
+    <classEntry path="FightModule.panel.LinePanel"/>
+    <classEntry path="FightModule.model.AnimationModel"/>
+    <classEntry path="FightModule.behaviors.MoveBehavior"/>
+    <classEntry path="FightModule.behaviors.CellRemoveBehavior"/>
+    <classEntry path="FightModule.behaviors.AlphaBehavior"/>
+    <classEntry path="FightModule.behaviors.ScaleBehavior"/>
+    <classEntry path="FightModule.behaviors.CellAddBehavior"/>
+  </includeClasses>
+  <includeResources/>
+  <namespaceManifests/>
+</flexLibProperties>

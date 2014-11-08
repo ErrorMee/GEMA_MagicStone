@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>	
+	<module id="10000" name="控制模块" dev_name="Control"/>
+	<module id="10001" name="登陆模块" dev_name="Login"/>
+	<module id="10002" name="关卡模块" dev_name="Advance"/>
+</config>

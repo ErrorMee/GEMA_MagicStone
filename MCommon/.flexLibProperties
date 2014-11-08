@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<flexLibProperties includeAllClasses="true" useMultiPlatformConfig="false" version="3">
+  <includeClasses>
+    <classEntry path="util.Constants"/>
+    <classEntry path="tick.Tick"/>
+    <classEntry path="tick.TickManager"/>
+    <classEntry path="Module.CommonEvent"/>
+    <classEntry path="Module.ModuleEvent"/>
+    <classEntry path="util.AssetsUtil"/>
+    <classEntry path="base.IDisposeObject"/>
+    <classEntry path="behavior.core.Behavior"/>
+    <classEntry path="behavior.core.BehaviorEvent"/>
+    <classEntry path="behavior.core.BehaviorTree"/>
+    <classEntry path="behavior.core.ParallelBehavior"/>
+    <classEntry path="behavior.core.LineBehavior"/>
+    <classEntry path="behavior.core.LoopBehavior"/>
+    <classEntry path="behavior.base.PauseBehavior"/>
+    <classEntry path="behavior.base.WaitBehavior"/>
+    <classEntry path="base.PPoint"/>
+  </includeClasses>
+  <includeResources>
+    <resourceEntry destPath="fonts/SourceSansPro-Regular.ttf" sourcePath="fonts/SourceSansPro-Regular.ttf"/>
+    <resourceEntry destPath="fonts/SourceSansPro-Semibold.ttf" sourcePath="fonts/SourceSansPro-Semibold.ttf"/>
+    <resourceEntry destPath="images/metalworks_mobile.xml" sourcePath="images/metalworks_mobile.xml"/>
+    <resourceEntry destPath="images/metalworks_mobile.png" sourcePath="images/metalworks_mobile.png"/>
+  </includeResources>
+  <namespaceManifests/>
+</flexLibProperties>
