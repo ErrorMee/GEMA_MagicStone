@@ -43,6 +43,6 @@ package FightModule.model
 		/**
 		 * 行为速度
 		 */
-		public static const BEHAVIOR_SPEED:Number = 0.2;
+		public static const BEHAVIOR_SPEED:Number = 0.12;
 	}
 }

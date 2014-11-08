@@ -84,6 +84,7 @@ package FightModule.model
 					cellInfo.m_YNum = y;
 					
 					cellInfo.m_Type = data.readByte();
+//					cellInfo.m_Type = 1;//todo
 					m_Cells.push(cellInfo);
 				}
 			}
@@ -137,7 +138,7 @@ package FightModule.model
 					deleteCell(cell);
 					AnimationModel.getInstance().line(cell);
 				}
-				fall();
+				fall([]);
 				stable();
 				fill();
 				dispatchEvent(new GridEvent(GridEvent.GRID_CHANGE));
@@ -147,7 +148,7 @@ package FightModule.model
 			dispatchEvent(new GridEvent(GridEvent.GRID_LINE_CHANGE));
 		}
 		
-		private function fall():void
+		private function fall(moveArr:Array):void
 		{
 			var x:int;
 			for(x = 0;x<FightConst.X_NUM;x++)
@@ -156,7 +157,6 @@ package FightModule.model
 				
 				var yNum:int = FightConst.X_NUM;
 				var i:int = (cells.length - 1);
-				var moveArr:Array = [];
 				for(;i >= 0;i--)
 				{
 					if(cells.length>i)
@@ -173,8 +173,8 @@ package FightModule.model
 						cellInfo.m_YNum = yNum;
 					}
 				}
-				AnimationModel.getInstance().addMove(moveArr);
 			}
+			AnimationModel.getInstance().addMove(moveArr);
 		}
 		
 		private function stable():void
@@ -374,14 +374,14 @@ package FightModule.model
 			pp.m_PreY = (cell.m_YNum - 1);
 			AnimationModel.getInstance().addMove([pp]);
 			
-			fall();
+			fall([]);
 			stable();
 			
 			pp.m_ToX = cell.m_XNum;
 			pp.m_ToY = cell.m_YNum;
 		}
 		
-		public function getLineEnd():CellInfo
+		private function getLineEnd():CellInfo
 		{
 			return m_LineCells[m_LineCells.length - 1];
 		}
