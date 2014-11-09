@@ -98,6 +98,7 @@ package FightModule.panel
 				var texture:Texture = Texture.fromBitmapData(bmpd,false,true);
 				if(m_Image)
 				{
+					m_Image.texture.dispose();
 					m_Image.removeFromParent(true);
 					m_Image = null;
 				}
