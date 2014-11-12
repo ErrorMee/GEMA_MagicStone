@@ -4,7 +4,7 @@ package FightModule.behaviors
 	
 	import FightModule.element.CellItem;
 	
-	import behavior.core.ParallelBehavior;
+	import gema.behavior.core.ParallelBehavior;
 	
 	/******************************************************
 	 *

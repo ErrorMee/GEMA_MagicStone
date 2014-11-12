@@ -7,7 +7,7 @@ package FightModule
 	
 	import org.robotlegs.mvcs.StarlingMediator;
 	
-	import util.AssetsUtil;
+	import gema.util.AssetsUtil;
 	
 	/******************************************************
 	 *

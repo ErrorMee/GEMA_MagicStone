@@ -20,9 +20,9 @@ package Game
 	import starling.textures.TextureSmoothing;
 	import starling.utils.AssetManager;
 	
-	import util.AssetsUtil;
-	import util.Constants;
-	import util.DisUtil;
+	import gema.util.AssetsUtil;
+	import gema.util.Constants;
+	import gema.util.DisUtil;
 	
 	public class MainRoot extends Sprite
 	{

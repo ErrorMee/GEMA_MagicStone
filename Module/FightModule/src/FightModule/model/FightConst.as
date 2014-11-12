@@ -1,6 +1,6 @@
 package FightModule.model
 {
-	import util.Constants;
+	import gema.util.Constants;
 
 	/******************************************************
 	 *

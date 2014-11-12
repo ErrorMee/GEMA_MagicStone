@@ -4,7 +4,7 @@ package FightModule.model2048
 	import starling.events.Event;
 	import starling.events.EventDispatcher;
 	
-	import util.PosUtil;
+	import gema.util.PosUtil;
 	import FightModule.model.FightConst;
 
 	public class Grid2048Model extends EventDispatcher

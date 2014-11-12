@@ -1,6 +1,6 @@
 package Game
 {
-	import Module.ModuleEvent;
+	import gema.Module.ModuleEvent;
 	
 	import org.robotlegs.mvcs.StarlingMediator;
 	

@@ -15,12 +15,12 @@ package FightModule.panel
 	import FightModule.model.FightConst;
 	import FightModule.model.GridModel;
 	
-	import base.PPoint;
+	import gema.base.PPoint;
 	
-	import behavior.base.WaitBehavior;
-	import behavior.core.BehaviorEvent;
-	import behavior.core.LineBehavior;
-	import behavior.core.ParallelBehavior;
+	import gema.behavior.base.WaitBehavior;
+	import gema.behavior.core.BehaviorEvent;
+	import gema.behavior.core.LineBehavior;
+	import gema.behavior.core.ParallelBehavior;
 	
 	import feathers.controls.ScrollContainer;
 	import feathers.events.FeathersEventType;
@@ -34,8 +34,8 @@ package FightModule.panel
 	import starling.events.TouchPhase;
 	import starling.textures.Texture;
 	
-	import util.DisUtil;
-	import util.PosUtil;
+	import gema.util.DisUtil;
+	import gema.util.PosUtil;
 	
 	/******************************************************
 	 *

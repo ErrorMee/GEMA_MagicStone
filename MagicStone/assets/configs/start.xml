@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- 游戏配置信息 -->
+<root>	
+	<game version="0.0.0"/>
+	<!-- 配置文件列表 -->	
+	<hungry path="assets/configs/" zip="false">
+		<file id="module.xml" asyn="0" className="Editor.module.GridEditorModule.config.CellConfig" />
+		<file id="cell.xml" asyn="0" className="Editor.module.GridEditorModule.config.CellConfig" />
+	</hungry>
+</root>

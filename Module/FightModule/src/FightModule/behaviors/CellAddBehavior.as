@@ -2,7 +2,7 @@ package FightModule.behaviors
 {
 	import FightModule.element.CellItem;
 	
-	import behavior.core.Behavior;
+	import gema.behavior.core.Behavior;
 	
 	import starling.animation.Transitions;
 	import starling.animation.Tween;
@@ -16,7 +16,7 @@ package FightModule.behaviors
 	 * 说明：
 	 *
 	 ******************************************************/
-	public class CellAddBehavior extends Behavior
+	public class CellAddBehavior extends gema.behavior.core.Behavior
 	{
 		private var m_CellItem:CellItem;
 		

@@ -1,22 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <flexLibProperties includeAllClasses="true" useMultiPlatformConfig="false" version="3">
   <includeClasses>
-    <classEntry path="util.Constants"/>
+    <classEntry path="gema.util.Constants"/>
     <classEntry path="tick.Tick"/>
-    <classEntry path="tick.TickManager"/>
-    <classEntry path="Module.CommonEvent"/>
-    <classEntry path="Module.ModuleEvent"/>
-    <classEntry path="util.AssetsUtil"/>
-    <classEntry path="base.IDisposeObject"/>
-    <classEntry path="behavior.core.Behavior"/>
-    <classEntry path="behavior.core.BehaviorEvent"/>
-    <classEntry path="behavior.core.BehaviorTree"/>
-    <classEntry path="behavior.core.ParallelBehavior"/>
-    <classEntry path="behavior.core.LineBehavior"/>
-    <classEntry path="behavior.core.LoopBehavior"/>
-    <classEntry path="behavior.base.PauseBehavior"/>
-    <classEntry path="behavior.base.WaitBehavior"/>
-    <classEntry path="base.PPoint"/>
+    <classEntry path="gema.Module.CommonEvent"/>
+    <classEntry path="gema.Module.ModuleEvent"/>
+    <classEntry path="gema.util.AssetsUtil"/>
+    <classEntry path="gema.base.IDisposeObject"/>
+    <classEntry path="gema.behavior.core.ParallelBehavior"/>
+    <classEntry path="gema.behavior.core.LoopBehavior"/>
+    <classEntry path="gema.base.PPoint"/>
   </includeClasses>
   <includeResources>
     <resourceEntry destPath="fonts/SourceSansPro-Regular.ttf" sourcePath="fonts/SourceSansPro-Regular.ttf"/>

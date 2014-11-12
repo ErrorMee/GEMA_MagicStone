@@ -11,10 +11,10 @@ package FightModule.model2048
 	import starling.utils.HAlign;
 	import starling.utils.VAlign;
 	
-	import util.AssetsUtil;
-	import util.PosUtil;
-	import util.DisUtil;
-	import util.StrUtil;
+	import gema.util.AssetsUtil;
+	import gema.util.PosUtil;
+	import gema.util.DisUtil;
+	import gema.util.StrUtil;
 	
 	public class Grid2048Cell extends Sprite
 	{

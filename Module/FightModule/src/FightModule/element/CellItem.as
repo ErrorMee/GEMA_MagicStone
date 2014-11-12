@@ -15,10 +15,10 @@ package FightModule.element
 	import starling.utils.HAlign;
 	import starling.utils.VAlign;
 	
-	import util.AssetsUtil;
-	import util.DisUtil;
-	import util.PosUtil;
-	import util.StrUtil;
+	import gema.util.AssetsUtil;
+	import gema.util.DisUtil;
+	import gema.util.PosUtil;
+	import gema.util.StrUtil;
 
 	/******************************************************
 	 *

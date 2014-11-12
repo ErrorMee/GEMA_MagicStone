@@ -118,8 +118,10 @@ package org.robotlegs.base
 			super.unmapListeners();
 			var params:Object;
 			var dispatcher:EventDispatcher;
-			while (params = starlingListeners.pop())
+//			while (params = starlingListeners.pop()) todo cy
+			while (starlingListeners.length > 0)
 			{
+				params = starlingListeners.pop();
 				dispatcher = params.dispatcher;
 				dispatcher.removeEventListener(params.type, params.callback);
 			}

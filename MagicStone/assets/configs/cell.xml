@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<cellConfig>
+	<!-- id:关键key -->
+	<!-- view:显示ID -->
+	<!-- link:0不可连 1可连 -->
+	<!-- stable:0不稳定 1稳定 -->
+	<!-- attach:0不可附着不可被附着 1可附着不可被附着 2不可附着可被附着 3可附着可被附着-->
+	<!-- involve_atk:牵连伤害 （0 不会牵连）-->
+	<!-- involve_def:牵连抵御 （0 不接受牵连） -->
+	<!-- export_type:输出 0不输出  1攻击 2铜币 3银币 4金币 5钥匙-->
+	<!-- export_value:输出指定type上的值-->
+	<!-- radio:0不可辐射 1可被辐射 -->
+	<!-- bomb:消耗炸弹数量 0不可炸 -->
+	
+	<!-- 基本 -->
+	<cell id="10000" name="背景" view="10000" link="0" stable="1" attach="0" involve_atk="0" involve_def="0" export_type="0" export_value="0" radio="0" bomb="0" desc="背景固定不变 用于设计地形"/>
+	
+	<cell id="11100" name="苹果" view="11100" link="1" stable="0" attach="2" involve_atk="1" involve_def="0" export_type="1" export_value="0" radio="1" bomb="1" desc="苹果"/>
+	<cell id="11200" name="辣椒" view="11200" link="1" stable="0" attach="2" involve_atk="1" involve_def="0" export_type="1" export_value="0" radio="1" bomb="1" desc="辣椒"/>
+	<cell id="11300" name="橙子" view="11300" link="1" stable="0" attach="2" involve_atk="1" involve_def="0" export_type="1" export_value="0" radio="1" bomb="1" desc="橙子"/>
+	<cell id="11400" name="香蕉" view="11400" link="1" stable="0" attach="2" involve_atk="1" involve_def="0" export_type="1" export_value="0" radio="1" bomb="1" desc="香蕉"/>
+	<cell id="11500" name="西瓜" view="11500" link="1" stable="0" attach="2" involve_atk="1" involve_def="0" export_type="1" export_value="0" radio="1" bomb="1" desc="西瓜"/>
+	
+	<cell id="12200" name="铜币" view="12200" link="0" stable="0" attach="0" involve_atk="0" involve_def="1" export_type="2" export_value="1" radio="0" bomb="1" desc="铜币(一级占位)"/>
+	<cell id="12201" name="银币" view="12201" link="0" stable="0" attach="0" involve_atk="0" involve_def="1" export_type="3" export_value="1" radio="0" bomb="1" desc="银币(一级占位)"/>
+	<cell id="12202" name="钻石" view="12202" link="0" stable="0" attach="0" involve_atk="0" involve_def="1" export_type="4" export_value="1" radio="0" bomb="1" desc="金币(一级占位)"/>
+	<cell id="12203" name="金匙" view="12203" link="0" stable="0" attach="0" involve_atk="0" involve_def="1" export_type="5" export_value="1" radio="0" bomb="1" esc="钥匙(一级占位)"/>
+	
+	<cell id="12500" name="铜箱" view="12500" link="0" stable="1" attach="0" involve_atk="0" involve_def="1" export_type="2" export_value="20" radio="0" bomb="1" desc="奖励多个铜币"/>
+	<cell id="12501" name="银箱" view="12501" link="0" stable="1" attach="0" involve_atk="0" involve_def="2" export_type="3" export_value="20" radio="0" bomb="1" desc="奖励多个银币"/>
+	<cell id="12502" name="钻箱" view="12502" link="0" stable="1" attach="0" involve_atk="0" involve_def="3" export_type="4" export_value="5" radio="0" bomb="1" desc="奖励多个钻石"/>
+	<cell id="12503" name="金箱" view="12503" link="0" stable="1" attach="0" involve_atk="0" involve_def="3" export_type="5" export_value="3" radio="0" bomb="1" desc="奖励多个钥匙"/>
+	
+	<!-- 良性附着 -->
+	<cell id="12620" name="辐射" view="12620" link="1" stable="0" attach="1" involve_atk="0" involve_def="0" export_type="0" export_value="0" radio="0" bomb="0" desc="让周围变成同色"/>
+	<cell id="12621" name="炸X" view="12621" link="1" stable="0" attach="1" involve_atk="0" involve_def="0" export_type="0" export_value="0" radio="0" bomb="0" desc="消除X方向多个格子"/>
+	<cell id="12622" name="炸Y" view="12622" link="1" stable="0" attach="1" involve_atk="0" involve_def="0" export_type="0" export_value="0" radio="0" bomb="0" desc="消除Y方向多个格子"/>
+	
+	<!-- 恶性附着 -->
+	<cell id="12630" name="玻璃" view="12630" link="0" stable="0" attach="1" involve_atk="0" involve_def="1" export_type="0" export_value="0" radio="0" bomb="1" desc="一次牵连打开"/>
+	<cell id="12631" name="砖块" view="12631" link="0" stable="0" attach="1" involve_atk="0" involve_def="2" export_type="0" export_value="0" radio="0" bomb="1" desc="两次牵连打开"/>
+	<cell id="12632" name="锁链" view="12632" link="1" stable="1" attach="1" involve_atk="0" involve_def="1" export_type="0" export_value="0" radio="0" bomb="1" desc="锁住格子  可连接"/>
+	<cell id="12633" name="铁牢" view="12633" link="0" stable="1" attach="1" involve_atk="0" involve_def="1" export_type="0" export_value="0" radio="0" bomb="1" desc="锁住格子 不可连接"/>
+	
+	<!-- 全屏 -->
+	<cell id="12640" name="全炸" view="12640" link="0" stable="0" attach="0" involve_atk="0" involve_def="0" export_type="0" export_value="0" radio="0" bomb="1" desc="消除全屏"/>
+	<cell id="12641" name="全色" view="12641" link="1" stable="0" attach="0" involve_atk="0" involve_def="0" export_type="0" export_value="0" radio="0" bomb="0" desc="全屏变色"/>
+	
+</cellConfig>

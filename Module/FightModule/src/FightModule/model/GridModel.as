@@ -4,7 +4,7 @@ package FightModule.model
 	
 	import FightModule.util.GridUtil;
 	
-	import base.PPoint;
+	import gema.base.PPoint;
 	
 	import starling.events.EventDispatcher;
 

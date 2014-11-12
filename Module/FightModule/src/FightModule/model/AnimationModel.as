@@ -1,6 +1,6 @@
 package FightModule.model
 {
-	import base.PPoint;
+	import gema.base.PPoint;
 
 	/******************************************************
 	 *

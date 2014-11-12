@@ -2,7 +2,7 @@ package FightModule.behaviors
 {
 	import FightModule.element.CellItem;
 	
-	import behavior.core.Behavior;
+	import gema.behavior.core.Behavior;
 	
 	import starling.animation.Transitions;
 	import starling.animation.Tween;

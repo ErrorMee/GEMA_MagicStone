@@ -18,7 +18,7 @@ package FightModule.model2048
 	import starling.events.TouchPhase;
 	import starling.textures.Texture;
 	
-	import util.PosUtil;
+	import gema.util.PosUtil;
 	
 	/******************************************************
 	 *
