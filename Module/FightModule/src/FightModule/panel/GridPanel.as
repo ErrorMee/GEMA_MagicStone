@@ -15,7 +15,7 @@ package FightModule.panel
 	import FightModule.model.FightConst;
 	import FightModule.model.GridModel;
 	
-	import gema.base.PPoint;
+	import gema.structure.PPoint;
 	
 	import gema.behavior.base.WaitBehavior;
 	import gema.behavior.core.BehaviorEvent;

@@ -4,7 +4,7 @@
 	<game version="0.0.0"/>
 	<!-- 配置文件列表 -->	
 	<hungry path="assets/configs/" zip="false">
-		<file id="module.xml" asyn="0" className="Editor.module.GridEditorModule.config.CellConfig" />
-		<file id="cell.xml" asyn="0" className="Editor.module.GridEditorModule.config.CellConfig" />
+		<file id="module.xml" asyn="0" className="gema.configs.ModuleConfig" />
+		<file id="cell.xml" asyn="0" className="gema.configs.CellConfig" />
 	</hungry>
 </root>

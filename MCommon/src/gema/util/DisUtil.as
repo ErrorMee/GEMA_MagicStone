@@ -3,6 +3,8 @@ package gema.util
 	import flash.geom.Point;
 	
 	import starling.display.DisplayObject;
+	import starling.display.DisplayObjectContainer;
+	import starling.display.MovieClip;
 
 	public class DisUtil
 	{
@@ -54,6 +56,9 @@ package gema.util
 			}
 		}
 		
+		/**
+		 * 移动显示对象
+		 */
 		public static function move(dis:DisplayObject,mx:int = 0,my:int = 0):void
 		{
 			if(dis == null)
@@ -73,6 +78,51 @@ package gema.util
 			newPoint.x = int(point.x/rate);
 			newPoint.y = int(point.y/rate);
 			return newPoint;
+		}
+		
+		private static function recursiveMC(mc:DisplayObject, frame:uint = 1,mcPlayFunName:String = "gotoAndStop"):void 
+		{ 
+			if(mc == null || !(mc is DisplayObjectContainer)) 
+			{ 
+				return;
+			} 
+			var mcContainer:DisplayObjectContainer = mc as DisplayObjectContainer;
+			
+			if(mcContainer is MovieClip)
+			{
+				frame > 0 ? mc[mcPlayFunName](frame) : mc[mcPlayFunName](); 
+			}
+			
+			if (mcContainer.numChildren > 0) 
+			{ 
+				for (var i:int = 0; i < mcContainer.numChildren; i++ ) 
+				{ 
+					if (mcContainer.getChildAt(i) as DisplayObjectContainer) 
+					{ 
+						recursiveMC(mcContainer.getChildAt(i), frame, mcPlayFunName); 
+					} 
+				} 
+			} 
+		}
+		
+		public static function start_mc(mc:DisplayObject = null):void
+		{
+			recursiveMC(mc,1,"gotoAndPlay");
+		}
+		
+		public static function stop_mc(mc:DisplayObject = null):void
+		{
+			recursiveMC(mc,1,"gotoAndStop");
+		}
+		
+		public static function pause_mc(mc:DisplayObject = null):void
+		{
+			recursiveMC(mc,0,"stop");
+		}
+		
+		public static function continue_mc(mc:DisplayObject = null):void
+		{
+			recursiveMC(mc,0,"play");
 		}
 	}
 }

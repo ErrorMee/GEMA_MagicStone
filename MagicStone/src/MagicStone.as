@@ -10,7 +10,10 @@ package
 	import flash.geom.Rectangle;
 	import flash.system.Capabilities;
 	
+	import Game.Declare;
 	import Game.MainRoot;
+	
+	import gema.util.Constants;
 	
 	import starling.core.Starling;
 	import starling.events.Event;
@@ -19,8 +22,6 @@ package
 	import starling.utils.RectangleUtil;
 	import starling.utils.SystemUtil;
 	import starling.utils.formatString;
-	
-	import gema.util.Constants;
 	
 	/******************************************************
 	 *
@@ -62,6 +63,7 @@ package
 				,appDir.resolvePath(formatString("fonts/{0}x", scaleFactor))
 				,appDir.resolvePath("icons")
 				,appDir.resolvePath("fight")
+				,appDir.resolvePath("configs")
 			);
 			
 			var backgroundClass:Class = scaleFactor == 1 ? BackgroundHD : BackgroundHD;
@@ -87,6 +89,8 @@ package
 			m_Starling.addEventListener(starling.events.Event.ROOT_CREATED, 
 				function(event:Object, app:MainRoot):void
 				{
+					Declare;
+					
 					m_Starling.removeEventListener(starling.events.Event.ROOT_CREATED, arguments.callee);
 					
 					removeChild(background);

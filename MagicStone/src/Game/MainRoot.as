@@ -4,13 +4,18 @@ package Game
 	import flash.system.System;
 	import flash.utils.Timer;
 	
+	import Game.context.MainContext;
+	import Game.view.MainNavigator;
+	
 	import feathers.controls.Callout;
 	import feathers.controls.Label;
 	import feathers.controls.ProgressBar;
 	import feathers.controls.ScreenNavigatorItem;
 	import feathers.themes.MetalWorksMobileTheme;
 	
-	import org.robotlegs.mvcs.StarlingContext;
+	import gema.util.AssetsUtil;
+	import gema.util.Constants;
+	import gema.util.DisUtil;
 	
 	import starling.core.Starling;
 	import starling.display.Image;
@@ -20,13 +25,9 @@ package Game
 	import starling.textures.TextureSmoothing;
 	import starling.utils.AssetManager;
 	
-	import gema.util.AssetsUtil;
-	import gema.util.Constants;
-	import gema.util.DisUtil;
-	
 	public class MainRoot extends Sprite
 	{
-		private var m_StarlingContext:StarlingContext;
+		private var m_MainContext:MainContext;
 		
 		public var m_MainNavigator:MainNavigator;
 		
@@ -40,7 +41,7 @@ package Game
 			//startup feather theme
 			new MetalWorksMobileTheme();
 			//startup robotlegs
-			m_StarlingContext = new MainContext(this);
+			m_MainContext = new MainContext(this);
 			//bg
 			var bgImage:Image = new Image(background);
 			bgImage.smoothing = TextureSmoothing.NONE;
@@ -74,8 +75,7 @@ package Game
 						
 						m_MainNavigator = new MainNavigator();
 						addChild(m_MainNavigator);
-						
-						dispatchEvent(new Event(Event.COMPLETE));
+						m_MainContext.startup();
 						
 						// now would be a good time for a clean-up 
 						System.pauseForGCIfCollectionImminent(0);

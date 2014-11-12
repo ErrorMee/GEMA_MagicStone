@@ -1,5 +1,7 @@
 package gema.util
 {
+    import flash.system.ApplicationDomain;
+    
     import starling.errors.AbstractClassError;
 
     public class Constants
@@ -19,5 +21,22 @@ package gema.util
 		
 		public static const STAGE_WIDTH_HALF:int  = 160;
 		public static const STAGE_HEIGHT_HALF:int = 240;
+		
+		/**
+		 * 检查本域类定义
+		 */
+		public static function hasDefinition(name:String):Boolean
+		{
+			return ApplicationDomain.currentDomain.hasDefinition(name);
+		}
+		
+		/**
+		 * 获取本域类定义
+		 */
+		public static function getClassByName(name:String):Class
+		{
+			if(hasDefinition(name)) return ApplicationDomain.currentDomain.getDefinition(name) as Class; 
+			return null;
+		}	
     }
 }
