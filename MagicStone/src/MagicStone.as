@@ -64,6 +64,7 @@ package
 				,appDir.resolvePath("icons")
 				,appDir.resolvePath("fight")
 				,appDir.resolvePath("configs")
+				,appDir.resolvePath("modules")
 			);
 			
 			var backgroundClass:Class = scaleFactor == 1 ? BackgroundHD : BackgroundHD;

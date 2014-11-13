@@ -4,9 +4,6 @@ package Game
 	import flash.system.System;
 	import flash.utils.Timer;
 	
-	import Game.context.MainContext;
-	import Game.view.MainNavigator;
-	
 	import feathers.controls.Callout;
 	import feathers.controls.Label;
 	import feathers.controls.ProgressBar;
@@ -28,8 +25,6 @@ package Game
 	public class MainRoot extends Sprite
 	{
 		private var m_MainContext:MainContext;
-		
-		public var m_MainNavigator:MainNavigator;
 		
 		public function MainRoot()
 		{
@@ -73,8 +68,6 @@ package Game
 					{
 						m_ProgressBar.removeFromParent(true);
 						
-						m_MainNavigator = new MainNavigator();
-						addChild(m_MainNavigator);
 						m_MainContext.startup();
 						
 						// now would be a good time for a clean-up 
@@ -107,10 +100,7 @@ package Game
 				{
 					m_ProgressBar.removeFromParent(true);
 					
-					m_MainNavigator = new MainNavigator();
-					addChild(m_MainNavigator);
-					
-					dispatchEvent(new Event(Event.COMPLETE));
+					m_MainContext.startup();
 					
 					// now would be a good time for a clean-up 
 					System.pauseForGCIfCollectionImminent(0);
@@ -122,15 +112,6 @@ package Game
 				m_Timer = null;
 			}
 		}
-		
-		public function addScreen(name:String,screenCls:Class):void
-		{
-			m_MainNavigator.m_Navigator.addScreen(name,new ScreenNavigatorItem(screenCls));
-		}
-		
-		public function showScreen(name:String):void
-		{
-			m_MainNavigator.m_Navigator.showScreen(name);
-		}
+
 	}
 }

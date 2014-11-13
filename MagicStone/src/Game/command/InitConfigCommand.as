@@ -3,9 +3,8 @@ package Game.command
 	
 	import Game.configs.StartConfig;
 	import Game.configs.StartConfigInfo;
-	import Game.context.MainContextEvent;
+	import Game.MainContextEvent;
 	
-	import gema.Module.base.ModuleContextEvent;
 	import gema.Module.core.ModuleCommand;
 	import gema.configs.BaseConfig;
 	import gema.util.AssetsUtil;
@@ -72,7 +71,7 @@ package Game.command
 					{
 						hungryConfig();
 					}else{
-						dispatch(new MainContextEvent(ModuleContextEvent.INIT_MODEL));
+						dispatch(new MainContextEvent(MainContextEvent.INIT_MODULE));
 					}
 					
 				}else{

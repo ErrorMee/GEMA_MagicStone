@@ -1,11 +1,11 @@
 package Game
 {
-	import FightModule.FightMediator;
-	import FightModule.FightModule;
-	
-	import StartModule.StartMediator;
-	import StartModule.StartModule;
-	
+	import gema.Module.core.Module;
+	import gema.Module.core.ModuleContext;
+	import gema.Module.core.ModuleContextView;
+	import gema.Module.core.ModuleMediator;
+	import gema.behavior.core.Behavior;
+	import gema.behavior.core.ParallelBehavior;
 	import gema.configs.CellConfig;
 	import gema.configs.CellConfigInfo;
 	import gema.configs.ModuleConfig;
@@ -25,12 +25,13 @@ package Game
 			ModuleConfigInfo;
 			CellConfig;
 			CellConfigInfo;
+			Behavior;
+			ParallelBehavior;
 			
-			StartModule;
-			FightModule;
-			
-			StartMediator;
-			FightMediator;
+			Module;
+			ModuleContext;
+			ModuleContextView;
+			ModuleMediator;
 		}
 	}
 }

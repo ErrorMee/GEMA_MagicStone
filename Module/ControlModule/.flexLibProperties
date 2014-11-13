@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<flexLibProperties includeAllClasses="true" useMultiPlatformConfig="true" version="3">
+  <includeClasses>
+    <classEntry path="ControlModule.ControlModule"/>
+    <classEntry path="ControlModule.ControlContext"/>
+    <classEntry path="ControlModule.ControlView"/>
+    <classEntry path="ControlModule.ControlMediator"/>
+  </includeClasses>
+  <includeResources/>
+  <namespaceManifests/>
+</flexLibProperties>

@@ -17,6 +17,10 @@
     <classEntry path="gema.configs.ModuleConfigInfo"/>
     <classEntry path="gema.configs.CellConfig"/>
     <classEntry path="gema.configs.CellConfigInfo"/>
+    <classEntry path="gema.Module.core.ModuleContext"/>
+    <classEntry path="gema.Module.core.ModuleContextView"/>
+    <classEntry path="gema.Module.core.ModuleMediator"/>
+    <classEntry path="gema.Module.core.ModuleLoader"/>
   </includeClasses>
   <includeResources>
     <resourceEntry destPath="fonts/SourceSansPro-Regular.ttf" sourcePath="fonts/SourceSansPro-Regular.ttf"/>

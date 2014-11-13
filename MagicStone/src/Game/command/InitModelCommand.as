@@ -1,6 +1,6 @@
 package Game.command
 {
-	import Game.context.MainContextEvent;
+	import Game.MainContextEvent;
 	
 	import gema.Module.core.ModuleCommand;
 	
@@ -18,7 +18,7 @@ package Game.command
 		
 		override public function execute():void
 		{
-			dispatch(new MainContextEvent(MainContextEvent.START_GAME));
+			dispatch(new MainContextEvent(MainContextEvent.INIT_CONTROL));
 		}
 	}
 }

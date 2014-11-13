@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config>	
-	<module id="10000" name="开始模块" dev_name="Start"/>
-	<module id="10001" name="战斗模块" dev_name="Fight"/>
+	<module id="10000" name="控制模块" dev_name="Control"/>
+	<module id="10001" name="开始模块" dev_name="Start"/>
+	<module id="10002" name="战斗模块" dev_name="Fight"/>
 </config>
