@@ -2,11 +2,9 @@ package FightModule.model
 {
 	import flash.utils.ByteArray;
 	
-	
+	import gema.structure.ModelActor;
 	import gema.structure.PPoint;
 	
-	import starling.events.EventDispatcher;
-
 	/******************************************************
 	 *
 	 * 创建者：cory
@@ -15,20 +13,10 @@ package FightModule.model
 	 *
 	 ******************************************************/
 	
-	public class GridModel extends EventDispatcher
+	public class GridModel extends ModelActor
 	{
-		public static function getInstance():GridModel
-		{
-			return _instance;
-		}
-		private static  var _instance:GridModel = new GridModel();
-		public function GridModel()
-		{
-			if(_instance)
-			{
-				throw new Error("只能用getInstance()来获取实例");
-			}
-		}
+		[Inject]
+		public var i_AnimationModel:AnimationModel;
 		
 		public var m_ID:int;
 		
@@ -104,7 +92,7 @@ package FightModule.model
 							if(getLineEnd().m_Type == cellInfo.m_Type)
 							{
 								m_LineCells.push(cellInfo);
-								dispatchEvent(new GridEvent(GridEvent.GRID_LINE_CHANGE));
+								dispatch(new GridEvent(GridEvent.GRID_LINE_CHANGE));
 							}
 						}
 					}
@@ -113,13 +101,13 @@ package FightModule.model
 						if((!m_LineCells.indexOf(cellInfo) && m_LineCells.length == 2) || m_LineCells.indexOf(cellInfo) == (m_LineCells.length - 2))
 						{
 							m_LineCells.splice(m_LineCells.length - 1,1);
-							dispatchEvent(new GridEvent(GridEvent.GRID_LINE_CHANGE));
+							dispatch(new GridEvent(GridEvent.GRID_LINE_CHANGE));
 						}
 					}
 					
 				}else{
 					m_LineCells.push(cellInfo);
-					dispatchEvent(new GridEvent(GridEvent.GRID_LINE_CHANGE));
+					dispatch(new GridEvent(GridEvent.GRID_LINE_CHANGE));
 				}
 				m_LastCell = cellInfo;
 			}
@@ -135,16 +123,16 @@ package FightModule.model
 				{
 					cell = m_LineCells[i];
 					deleteCell(cell);
-					AnimationModel.getInstance().line(cell);
+					i_AnimationModel.line(cell);
 				}
 				fall([]);
 				stable();
 				fill();
-				dispatchEvent(new GridEvent(GridEvent.GRID_CHANGE));
+				dispatch(new GridEvent(GridEvent.GRID_CHANGE));
 			}
 			m_LineCells = new Vector.<CellInfo>;
 			m_LastCell = null;
-			dispatchEvent(new GridEvent(GridEvent.GRID_LINE_CHANGE));
+			dispatch(new GridEvent(GridEvent.GRID_LINE_CHANGE));
 		}
 		
 		private function fall(moveArr:Array):void
@@ -173,7 +161,7 @@ package FightModule.model
 					}
 				}
 			}
-			AnimationModel.getInstance().addMove(moveArr);
+			i_AnimationModel.addMove(moveArr);
 		}
 		
 		private function stable():void
@@ -210,7 +198,7 @@ package FightModule.model
 					pp.m_ToX = (cellInfo.m_XNum - 1);
 					pp.m_ToY = (cellInfo.m_YNum + 1);
 					moveArr.push(pp);
-					AnimationModel.getInstance().addMove(moveArr);
+					i_AnimationModel.addMove(moveArr);
 					cellInfo.m_XNum --;
 					cellInfo.m_YNum ++;
 				}
@@ -224,7 +212,7 @@ package FightModule.model
 					pp.m_ToX = (cellInfo.m_XNum + 1);
 					pp.m_ToY = (cellInfo.m_YNum + 1);
 					moveArr.push(pp);
-					AnimationModel.getInstance().addMove(moveArr);
+					i_AnimationModel.addMove(moveArr);
 					cellInfo.m_XNum ++;
 					cellInfo.m_YNum ++;
 				}
@@ -242,7 +230,7 @@ package FightModule.model
 					moveArr.push(pp);
 					cell.m_YNum ++;
 				}
-				AnimationModel.getInstance().addMove(moveArr);
+				i_AnimationModel.addMove(moveArr);
 			}
 			
 			if(hasChange)
@@ -371,7 +359,7 @@ package FightModule.model
 			var pp:PPoint = new PPoint;
 			pp.m_PreX = cell.m_XNum;
 			pp.m_PreY = (cell.m_YNum - 1);
-			AnimationModel.getInstance().addMove([pp]);
+			i_AnimationModel.addMove([pp]);
 			
 			fall([]);
 			stable();

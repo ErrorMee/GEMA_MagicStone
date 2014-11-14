@@ -1,13 +1,13 @@
 package FightModule.model
 {
-	import starling.events.Event;
+	import gema.Module.base.FlashEvent;
 
 	/**
 	 * 创建者: cory
 	 * 修改者:
 	 * 说明:
 	 */
-	public class GridEvent extends Event
+	public class GridEvent extends FlashEvent
 	{
 		public static const GRID_CHANGE:String = "grid_change";
 		
@@ -17,7 +17,7 @@ package FightModule.model
 		
 		public function GridEvent(type:String, bubbles:Boolean=false, data:Object=null)
 		{
-			super(type, bubbles, data);
+			super(type, data, bubbles);
 		}
 	}
 }

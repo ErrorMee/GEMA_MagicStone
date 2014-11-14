@@ -1,12 +1,10 @@
 package FightModule
 {
-	import flash.utils.ByteArray;
-	
-	import FightModule.model.GridEvent;
 	import FightModule.model.GridModel;
+	import FightModule.panel.GridMediator;
+	import FightModule.panel.LineMediator;
 	
 	import gema.Module.core.ModuleMediator;
-	import gema.util.AssetsUtil;
 	
 	/******************************************************
 	 *
@@ -29,27 +27,18 @@ package FightModule
 			return getViewComponent() as FightView;
 		}
 		
-		override protected function initView():void
+		override protected function initMediator():void
 		{
-			m_GridModel = GridModel.getInstance();
-			
-			var gridDat:ByteArray = AssetsUtil.ASSET.getByteArray("10000");
-			m_GridModel.loadData(gridDat);
-			
-			view.headerProperties.title = "" + m_GridModel.m_ID;
-			
-			view.m_GridPanel.initGrid();
+			registerComponentMediator(view.m_GridPanel,GridMediator);
+			registerComponentMediator(view.m_LinePanel,LineMediator);
 		}
 		
+		override protected function initView():void
+		{
+		}
 		
 		override protected function initEvent():void
 		{
-			m_GridModel.addEventListener(GridEvent.GRID_CHANGE,onGridChange);
-		}
-		
-		private function onGridChange(e:GridEvent):void
-		{
-			view.m_GridPanel.changeGrid();
 		}
 	}
 }

@@ -16,6 +16,7 @@ package Game
 	import gema.configs.CellConfigInfo;
 	import gema.configs.ModuleConfig;
 	import gema.configs.ModuleConfigInfo;
+	import gema.structure.ModelActor;
 	import gema.structure.PPoint;
 	import gema.util.PosUtil;
 	import gema.util.StrUtil;
@@ -53,6 +54,8 @@ package Game
 			PosUtil;
 			
 			PPoint;
+			
+			ModelActor;
 		}
 	}
 }

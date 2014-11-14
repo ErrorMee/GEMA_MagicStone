@@ -1,5 +1,6 @@
 package FightModule.model
 {
+	import gema.structure.ModelActor;
 	import gema.structure.PPoint;
 
 	/******************************************************
@@ -9,22 +10,9 @@ package FightModule.model
 	 * 说明：
 	 *
 	 ******************************************************/
-	public class AnimationModel
+	public class AnimationModel extends ModelActor
 	{
 		public static var RUNING:Boolean = false;
-		
-		public static function getInstance():AnimationModel
-		{
-			return _instance;
-		}
-		private static  var _instance:AnimationModel = new AnimationModel();
-		public function AnimationModel()
-		{
-			if(_instance)
-			{
-				throw new Error("只能用getInstance()来获取实例");
-			}
-		}
 		
 		private var m_LineCells:Vector.<CellInfo> = new Vector.<CellInfo>;
 		
@@ -62,7 +50,7 @@ package FightModule.model
 			return m_Moves;
 		}
 		
-		public function clear():void
+		override public function clear():void
 		{
 			m_LineCells = new Vector.<CellInfo>;
 			m_Moves = [];

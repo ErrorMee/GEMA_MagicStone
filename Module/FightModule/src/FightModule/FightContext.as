@@ -2,6 +2,9 @@ package FightModule
 {
 	import flash.system.ApplicationDomain;
 	
+	import FightModule.model.AnimationModel;
+	import FightModule.model.GridModel;
+	
 	import gema.Module.core.ModuleContext;
 	
 	import org.robotlegs.core.IInjector;
@@ -22,6 +25,9 @@ package FightModule
 		
 		override protected function registMSCV():void
 		{
+			injector.mapSingleton(GridModel);
+			injector.mapSingleton(AnimationModel);
+			
 			registView(FightView,FightMediator);
 		}
 	}
