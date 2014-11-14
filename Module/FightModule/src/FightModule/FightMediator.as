@@ -5,8 +5,7 @@ package FightModule
 	import FightModule.model.GridEvent;
 	import FightModule.model.GridModel;
 	
-	import org.robotlegs.mvcs.StarlingMediator;
-	
+	import gema.Module.core.ModuleMediator;
 	import gema.util.AssetsUtil;
 	
 	/******************************************************
@@ -16,7 +15,7 @@ package FightModule
 	 * 说明：
 	 *
 	 ******************************************************/
-	public class FightMediator extends StarlingMediator
+	public class FightMediator extends ModuleMediator
 	{
 		private var m_GridModel:GridModel;
 		
@@ -25,15 +24,13 @@ package FightModule
 			super();
 		}
 		
-		private function get view():FightModule
+		private function get view():FightView
 		{
-			return getViewComponent() as FightModule;
+			return getViewComponent() as FightView;
 		}
 		
-		override public function onRegister():void
+		override protected function initView():void
 		{
-			super.onRegister();
-			
 			m_GridModel = GridModel.getInstance();
 			
 			var gridDat:ByteArray = AssetsUtil.ASSET.getByteArray("10000");
@@ -42,11 +39,10 @@ package FightModule
 			view.headerProperties.title = "" + m_GridModel.m_ID;
 			
 			view.m_GridPanel.initGrid();
-			
-			addEvent();
 		}
 		
-		private function addEvent():void
+		
+		override protected function initEvent():void
 		{
 			m_GridModel.addEventListener(GridEvent.GRID_CHANGE,onGridChange);
 		}

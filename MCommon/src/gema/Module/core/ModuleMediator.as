@@ -90,24 +90,24 @@ package gema.Module.core
 		 */
 		protected function log(param:String,from:String = null):void
 		{
-//			dispatchToModules(i_ModuleEvent.creatLog(param,from));
+			dispatchToModules(i_ModuleEvent.creatLog(param,from));
 		}
 		
 		protected function openModule(name:String,data:Object = null,refresh:Boolean = false):void 
 		{
-//			if(name == null)
-//			{
-//				trace("openModule name == null");
-//				return;
-//			}
-//			if(refresh)
-//			{
-//				dispatchToModules(i_ModuleEvent.createControl(ModuleEvent.ME_UPDATE.m_Name,name));
-//			}
-//			else
-//			{
-//				dispatchToModules(i_ModuleEvent.createControl(ModuleEvent.ME_ENTER.m_Name,name));
-//			}
+			if(name == null)
+			{
+				trace("openModule name == null");
+				return;
+			}
+			if(refresh)
+			{
+				dispatchToModules(i_ModuleEvent.createControl(ModuleEvent.ME_UPDATE.m_Name,name));
+			}
+			else
+			{
+				dispatchToModules(i_ModuleEvent.createControl(ModuleEvent.ME_ENTER.m_Name,name));
+			}
 		}
 		
 		/**
@@ -115,17 +115,17 @@ package gema.Module.core
 		 */
 		protected function closeModule(name:String,dispose:Boolean = false):void
 		{
-//			if(name == null)
-//			{
-//				trace("closeModule name == null");
-//				return;
-//			}
-//			if(dispose)
-//			{
-//				dispatchToModules(i_ModuleEvent.createControl(ModuleEvent.ME_DISPOSE.m_Name,name));
-//			}else{
-//				dispatchToModules(i_ModuleEvent.createControl(ModuleEvent.ME_CLOSE.m_Name,name));
-//			}
+			if(name == null)
+			{
+				trace("closeModule name == null");
+				return;
+			}
+			if(dispose)
+			{
+				dispatchToModules(i_ModuleEvent.createControl(ModuleEvent.ME_DISPOSE.m_Name,name));
+			}else{
+				dispatchToModules(i_ModuleEvent.createControl(ModuleEvent.ME_CLOSE.m_Name,name));
+			}
 		}
 		
 		override public function onRemove():void

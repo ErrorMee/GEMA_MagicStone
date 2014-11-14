@@ -7,6 +7,7 @@ package Game
 	
 	import gema.Module.base.ModuleContextEvent;
 	import gema.Module.base.ModuleEventDispatcher;
+	import gema.util.Constants;
 	
 	import org.robotlegs.mvcs.StarlingContext;
 	
@@ -29,6 +30,11 @@ package Game
 		override public function startup():void
 		{
 			super.startup();
+			
+			if(null == Constants.MAIN_INJECTOR)
+			{
+				Constants.MAIN_INJECTOR = injector;
+			}
 			
 			/**
 			 * 全局模块事件中心

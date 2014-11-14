@@ -12,6 +12,8 @@
     <classEntry path="FightModule.behaviors.AlphaBehavior"/>
     <classEntry path="FightModule.behaviors.ScaleBehavior"/>
     <classEntry path="FightModule.behaviors.CellAddBehavior"/>
+    <classEntry path="FightModule.FightView"/>
+    <classEntry path="FightModule.FightContext"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

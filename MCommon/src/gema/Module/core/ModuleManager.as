@@ -6,9 +6,12 @@ package gema.Module.core
 	import flash.system.LoaderContext;
 	import flash.utils.ByteArray;
 	
+	import feathers.controls.ScreenNavigatorItem;
+	
 	import gema.Module.base.ModuleInfo;
 	import gema.Module.interfaces.IModule;
 	import gema.Module.interfaces.IModuleManager;
+	import gema.Module.layer.LayerMgr;
 	import gema.structure.HashMap;
 	import gema.util.AssetsUtil;
 	import gema.util.Constants;
@@ -25,7 +28,6 @@ package gema.Module.core
 		private static const MODULE_FILE_SUFFIX:String = ".swf";
 		
 		private var m_ModuleList:HashMap = new HashMap;
-		
 		private var m_ModuleReadyList:HashMap = new HashMap;
 		
 		public function ModuleManager()
@@ -68,10 +70,11 @@ package gema.Module.core
 			}
 			var moduleFullName:String = moduleName + MODULE_NAME_SUFFIX;
 			var moduleClassName:String = moduleFullName + "." + moduleFullName;
+			var moduelViewClassName:String = moduleFullName + "." + moduleName + "View";
 			
 			var info:ModuleInfo = moduleReadyInfo.info;
 			
-			linkModule(info,moduleClassName);
+			linkModule(info,moduleClassName,moduelViewClassName);
 			
 			module = getModule(moduleName);
 			if(module)
@@ -85,7 +88,7 @@ package gema.Module.core
 			}
 		}
 		
-		private function linkModule(info:ModuleInfo,className:String):void
+		private function linkModule(info:ModuleInfo,className:String,viewClsName:String):void
 		{
 			if(null == info) return;
 			if(getModule(info.m_Name)) return;
@@ -95,6 +98,12 @@ package gema.Module.core
 				var moduleInstanse:IModule = new ModuleClass() as IModule;
 				moduleInstanse.setName(info.m_Name);
 				m_ModuleList.put(info.m_Name,moduleInstanse);
+				
+				if(LayerMgr.CONTROL_SCREENNAVIGATOR_LAYER)
+				{
+					var viewCls:Class = Constants.getClassByName(viewClsName);
+					LayerMgr.CONTROL_SCREENNAVIGATOR_LAYER.addScreen(info.m_Name,new ScreenNavigatorItem(viewCls));
+				}
 			}
 		}
 		

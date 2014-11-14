@@ -1,23 +1,17 @@
 package gema.Module.core
 {
-	import starling.display.Sprite;
+	import feathers.controls.PanelScreen;
 	
 	/**
 	 * 创建者: errormee
 	 * 修改者:
 	 * 说明:
 	 */
-	public class ModuleContextView extends Sprite
+	public class ModuleContextView extends PanelScreen
 	{
 		public function ModuleContextView()
 		{
 			super();
-			init();
 		}
-		
-		protected function init():void
-		{
-		}
-		
 	}
 }

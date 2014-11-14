@@ -2,6 +2,8 @@ package gema.util
 {
     import flash.system.ApplicationDomain;
     
+    import org.robotlegs.core.IInjector;
+    
     import starling.errors.AbstractClassError;
 
     public class Constants
@@ -38,5 +40,7 @@ package gema.util
 			if(hasDefinition(name)) return ApplicationDomain.currentDomain.getDefinition(name) as Class; 
 			return null;
 		}	
+		
+		public static var MAIN_INJECTOR:IInjector;
     }
 }

@@ -1,7 +1,8 @@
 package ControlModule
 {
+	import ControlModule.mediator.ModulesMediator;
+	
 	import gema.Module.core.ModuleMediator;
-	import gema.configs.ModuleConfig;
 	
 	/**
 	 * 创建者: errormee
@@ -10,9 +11,6 @@ package ControlModule
 	 */
 	public class ControlMediator extends ModuleMediator
 	{
-		[Inject]
-		public var i_ModuleConfig:ModuleConfig;
-		
 		public function ControlMediator()
 		{
 			super();
@@ -23,11 +21,18 @@ package ControlModule
 			return getViewComponent() as ControlView;
 		}
 		
+		override protected function initMediator():void
+		{
+			registerComponentMediator(view,ModulesMediator);
+		}
+		
 		override protected function initView():void
 		{
-			var moduels:Array = i_ModuleConfig.getConfigInfos(true);
 			
-//			view.addScreen(
+		}
+		
+		override protected function initEvent():void
+		{
 		}
 	}
 }

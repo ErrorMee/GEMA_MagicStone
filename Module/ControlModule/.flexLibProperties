@@ -5,6 +5,7 @@
     <classEntry path="ControlModule.ControlContext"/>
     <classEntry path="ControlModule.ControlView"/>
     <classEntry path="ControlModule.ControlMediator"/>
+    <classEntry path="ControlModule.mediator.ModulesMediator"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

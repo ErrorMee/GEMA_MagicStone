@@ -3,7 +3,6 @@ package ControlModule
 	import flash.system.ApplicationDomain;
 	
 	import gema.Module.core.Module;
-	import gema.Module.layer.LayerEnum;
 	
 	/**
 	 * 创建者: errormee
@@ -19,7 +18,7 @@ package ControlModule
 		
 		override protected function onStartUp():void
 		{
-			initModule(ControlView,ControlContext,ApplicationDomain.currentDomain,LayerEnum.LAYER_CONTROL);
+			initModule(ControlView,ControlContext,ApplicationDomain.currentDomain);
 		}
 	}
 }

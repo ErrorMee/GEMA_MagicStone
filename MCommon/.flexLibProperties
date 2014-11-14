@@ -21,6 +21,7 @@
     <classEntry path="gema.Module.core.ModuleContextView"/>
     <classEntry path="gema.Module.core.ModuleMediator"/>
     <classEntry path="gema.Module.core.ModuleLoader"/>
+    <classEntry path="gema.Module.layer.LayerMgr"/>
   </includeClasses>
   <includeResources>
     <resourceEntry destPath="fonts/SourceSansPro-Regular.ttf" sourcePath="fonts/SourceSansPro-Regular.ttf"/>

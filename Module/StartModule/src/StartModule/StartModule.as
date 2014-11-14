@@ -1,33 +1,24 @@
-package StartModule  
+package StartModule
 {
-	import feathers.controls.ButtonGroup;
-	import feathers.controls.PanelScreen;
-	import feathers.layout.AnchorLayout;
-	import feathers.layout.AnchorLayoutData;
+	import flash.system.ApplicationDomain;
 	
-	public class StartModule extends PanelScreen
+	import gema.Module.core.Module;
+	
+	/**
+	 * 创建者: errormee
+	 * 修改者:
+	 * 说明:
+	 */
+	public class StartModule extends Module
 	{
 		public function StartModule()
 		{
 			super();
 		}
 		
-		public var m_ButtonGroup:ButtonGroup;
-		
-		override protected function initialize():void
+		override protected function onStartUp():void
 		{
-			super.initialize();
-			layout = new AnchorLayout();
-			
-			m_ButtonGroup = new ButtonGroup();
-			
-			var buttonGroupLayoutData:AnchorLayoutData = new AnchorLayoutData();
-			buttonGroupLayoutData.horizontalCenter = 0;
-			buttonGroupLayoutData.verticalCenter = 0;
-			m_ButtonGroup.layoutData = buttonGroupLayoutData;
-			
-			addChild(m_ButtonGroup);
+			initModule(StartView,StartContext,ApplicationDomain.currentDomain);
 		}
 	}
 }
-

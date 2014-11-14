@@ -2,38 +2,32 @@ package ControlModule
 {
 	import ControlModule.view.MainNavigator;
 	
-	import feathers.controls.ScreenNavigatorItem;
-	
-	import gema.Module.core.ModuleContextView;
+	import starling.display.Sprite;
 	
 	/**
 	 * 创建者: errormee
 	 * 修改者:
 	 * 说明:
 	 */
-	public class ControlView extends ModuleContextView
+	public class ControlView extends Sprite
 	{
 		public var m_MainNavigator:MainNavigator;
 		
 		public function ControlView()
 		{
 			super();
+			init();
 		}
 		
-		override protected function init():void
+		private function init():void
 		{
 			m_MainNavigator = new MainNavigator();
 			addChild(m_MainNavigator);
+//			var text:TextField = new TextField(100,100,"control");
+//			text.autoScale = true;
+//			text.border = true;
+//			addChild(text);
 		}
 		
-		public function addScreen(name:String,screenCls:Class):void
-		{
-			m_MainNavigator.m_Navigator.addScreen(name,new ScreenNavigatorItem(screenCls));
-		}
-		
-		public function showScreen(name:String):void
-		{
-			m_MainNavigator.m_Navigator.showScreen(name);
-		}
 	}
 }

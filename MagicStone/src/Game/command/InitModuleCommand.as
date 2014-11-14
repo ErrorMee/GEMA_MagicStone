@@ -6,7 +6,7 @@ package Game.command
 	import gema.Module.base.ModuleEvent;
 	import gema.Module.core.ModuleCommand;
 	import gema.Module.core.ModuleManager;
-	import gema.Module.layer.LayerManager;
+	import gema.Module.layer.LayerMgr;
 	
 	/**
 	 * 创建者: errormee
@@ -25,8 +25,7 @@ package Game.command
 			injector.mapSingleton(ModuleManager);
 			injector.mapSingleton(ModuleEvent);
 			
-			var layerManager:LayerManager = new LayerManager;
-			layerManager.setup(contextView);
+			LayerMgr.MAIN_CONTEXT_LAYER = contextView;
 			
 			dispatch(new MainContextEvent(ModuleContextEvent.INIT_MODEL));
 			

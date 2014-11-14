@@ -4,8 +4,7 @@ package gema.Module.core
 	
 	import gema.Module.interfaces.IModule;
 	import gema.Module.interfaces.IModuleContext;
-	import gema.Module.layer.LayerEnum;
-	import gema.Module.layer.LayerManager;
+	import gema.Module.layer.LayerMgr;
 	import gema.structure.EnumVo;
 	import gema.util.DisUtil;
 	
@@ -121,14 +120,18 @@ package gema.Module.core
 		
 		protected function initModule(viewCls:Class,contextCls:Class,domain:ApplicationDomain = null,layerEnum:EnumVo = null):void
 		{
-			if(layerEnum == null)
-			{
-				layerEnum = LayerEnum.LAYER_UI;
-			}
 			m_ModuleView = new viewCls;
 			m_ModuleContext = new contextCls(m_ModuleView,m_ParentInjector,domain);
-			m_ParentContainer = LayerManager.GetInstance().getLayer(layerEnum.m_Name);
-			m_ParentContainer.addChild(m_ModuleView);
+			
+			if(LayerMgr.CONTROL_SCREENNAVIGATOR_LAYER)
+			{
+				LayerMgr.CONTROL_SCREENNAVIGATOR_LAYER.showScreen(m_Name);
+			}else{
+				if(LayerMgr.MAIN_CONTEXT_LAYER)
+				{
+					LayerMgr.MAIN_CONTEXT_LAYER.addChild(m_ModuleView);
+				}
+			}
 		}
 	}
 }

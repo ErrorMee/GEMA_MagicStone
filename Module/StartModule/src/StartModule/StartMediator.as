@@ -1,40 +1,39 @@
 package StartModule
 {
-	import gema.Module.base.ModuleEvent;
-	
 	import feathers.controls.Button;
 	import feathers.data.ListCollection;
 	
-	import org.robotlegs.mvcs.StarlingMediator;
+	import gema.Module.core.ModuleMediator;
+	import gema.configs.ModuleConfig;
 	
 	import starling.events.Event;
 	
-	/******************************************************
-	 *
-	 * 创建者：cory
-	 * 功能：
-	 * 说明：
-	 *
-	 ******************************************************/
-	public class StartMediator extends StarlingMediator
+	/**
+	 * 创建者: errormee
+	 * 修改者:
+	 * 说明:
+	 */
+	public class StartMediator extends ModuleMediator
 	{
+		[Inject]
+		public var i_ModuleConfig:ModuleConfig;
+		
 		public function StartMediator()
 		{
 			super();
 		}
 		
-		private function get view():StartModule
+		private function get view():StartView
 		{
-			return getViewComponent() as StartModule;
+			return getViewComponent() as StartView;
 		}
 		
-		override public function onRegister():void
+		override protected function initView():void
 		{
-			super.onRegister();
 			view.headerProperties.title = "START";
 			
 			view.m_ButtonGroup.dataProvider = new ListCollection(
-			[{ label: "Through", triggered: onTriggered },{ label: "Dekaron", triggered: onTriggered }]);
+				[{ label: "Through", triggered: onTriggered },{ label: "Dekaron", triggered: onTriggered }]);
 		}
 		
 		private function onTriggered(event:Event):void
@@ -42,7 +41,7 @@ package StartModule
 			var button:Button = Button(event.currentTarget);
 			if(button.label == "Through")
 			{
-				dispatch(new ModuleEvent(ModuleEvent.OPEN_MODULE,"Fight"));
+				openModule(i_ModuleConfig.getModuleDevName(10002));
 			}
 		}
 	}
