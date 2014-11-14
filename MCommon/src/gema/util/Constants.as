@@ -1,5 +1,6 @@
 package gema.util
 {
+    import flash.geom.Rectangle;
     import flash.system.ApplicationDomain;
     
     import org.robotlegs.core.IInjector;
@@ -23,6 +24,8 @@ package gema.util
 		
 		public static const STAGE_WIDTH_HALF:int  = 160;
 		public static const STAGE_HEIGHT_HALF:int = 240;
+		
+		public static var APP_RECT:Rectangle;
 		
 		/**
 		 * 检查本域类定义

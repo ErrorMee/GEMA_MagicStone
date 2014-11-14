@@ -37,7 +37,6 @@ package
 		[Embed(source="/appicon/DefaultBG@2x.png")]
 		private static var BackgroundHD:Class;
 		
-		public static var APP_RECT:Rectangle;
 		private var m_Starling:Starling;
 		
 		public function MagicStone()
@@ -49,12 +48,12 @@ package
 			stage.scaleMode = StageScaleMode.NO_SCALE;
 			
 			//APP尺寸
-			APP_RECT = RectangleUtil.fit(new Rectangle(0,0,Constants.STAGE_WIDTH,Constants.STAGE_HEIGHT),
+			Constants.APP_RECT = RectangleUtil.fit(new Rectangle(0,0,Constants.STAGE_WIDTH,Constants.STAGE_HEIGHT),
 										 new Rectangle(0,0,stage.fullScreenWidth,stage.fullScreenHeight));
 			
 			var isIOS:Boolean = Capabilities.manufacturer.indexOf("iOS") != -1;
 			
-			var scaleFactor:int = APP_RECT.width < Constants.STAGE_HEIGHT ? 1 : 2;
+			var scaleFactor:int = Constants.APP_RECT.width < Constants.STAGE_HEIGHT ? 1 : 2;
 			var appDir:File = File.applicationDirectory;
 			var assets:AssetManager = new AssetManager(scaleFactor);
 			assets.verbose = Capabilities.isDebugger;
@@ -70,17 +69,17 @@ package
 			var backgroundClass:Class = scaleFactor == 1 ? BackgroundHD : BackgroundHD;
 			var background:Bitmap = new backgroundClass();
 			BackgroundHD = null;
-			background.x = APP_RECT.x;
-			background.y = APP_RECT.y;
-			background.width  = APP_RECT.width;
-			background.height = APP_RECT.height;
+			background.x = Constants.APP_RECT.x;
+			background.y = Constants.APP_RECT.y;
+			background.width  = Constants.APP_RECT.width;
+			background.height = Constants.APP_RECT.height;
 			background.smoothing = true;
 			addChild(background);
 			
 			Starling.multitouchEnabled = true;
 			Starling.handleLostContext = !isIOS;
 			
-			m_Starling = new Starling(MainRoot,stage,APP_RECT);
+			m_Starling = new Starling(MainRoot,stage,Constants.APP_RECT);
 			m_Starling.stage.stageWidth  = Constants.STAGE_WIDTH;
 			m_Starling.stage.stageHeight = Constants.STAGE_HEIGHT;
 			m_Starling.simulateMultitouch  = false;

@@ -2,6 +2,8 @@ package gema.Module.core
 {
 	import feathers.controls.PanelScreen;
 	
+	import gema.util.Constants;
+	
 	/**
 	 * 创建者: errormee
 	 * 修改者:
@@ -12,6 +14,12 @@ package gema.Module.core
 		public function ModuleContextView()
 		{
 			super();
+		}
+		
+		override protected function initialize():void
+		{
+			super.initialize();
+			setSize(Constants.STAGE_WIDTH,Constants.STAGE_HEIGHT);
 		}
 	}
 }

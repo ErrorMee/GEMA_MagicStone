@@ -3,7 +3,6 @@
   <includeClasses>
     <classEntry path="FightModule.model.FightConst"/>
     <classEntry path="FightModule.panel.GridPanel"/>
-    <classEntry path="FightModule.model2048.TouchPanel"/>
     <classEntry path="FightModule.element.CellItem"/>
     <classEntry path="FightModule.panel.LinePanel"/>
     <classEntry path="FightModule.model.AnimationModel"/>

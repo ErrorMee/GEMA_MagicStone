@@ -24,7 +24,6 @@ package StartModule
 		{
 			super.initialize();
 			layout = new AnchorLayout();
-			
 			m_ButtonGroup = new ButtonGroup();
 			
 			var buttonGroupLayoutData:AnchorLayoutData = new AnchorLayoutData();
@@ -33,8 +32,6 @@ package StartModule
 			m_ButtonGroup.layoutData = buttonGroupLayoutData;
 			
 			addChild(m_ButtonGroup);
-			
-			this.x = 10;
 		}
 	}
 }

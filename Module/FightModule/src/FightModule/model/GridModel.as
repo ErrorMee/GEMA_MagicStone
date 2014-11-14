@@ -2,7 +2,6 @@ package FightModule.model
 {
 	import flash.utils.ByteArray;
 	
-	import FightModule.util.GridUtil;
 	
 	import gema.structure.PPoint;
 	

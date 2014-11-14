@@ -1,7 +1,5 @@
-package FightModule.util
+package FightModule.model
 {
-	import FightModule.model.CellInfo;
-	import FightModule.model.FightConst;
 
 	/**
 	 * 创建者: cory
