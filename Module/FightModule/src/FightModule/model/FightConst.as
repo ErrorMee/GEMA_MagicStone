@@ -38,7 +38,7 @@ package FightModule.model
 		/**
 		 * 稳定
 		 */
-		public static const NO_UNSTABLE:int = 0;
+		public static const STABLE:int = 0;
 		
 		/**
 		 * 行为速度

@@ -35,5 +35,19 @@ package gema.configs
 		{
 			super();
 		}
+		
+		public function getSortIndex():int
+		{
+			return int(id);
+		}
+		
+		public function isAttachType(attachType:int):Boolean
+		{
+			if(attach == attachType)
+			{
+				return true;
+			}
+			return false;
+		}
 	}
 }

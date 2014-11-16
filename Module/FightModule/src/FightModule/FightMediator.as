@@ -1,7 +1,9 @@
 package FightModule
 {
 	import FightModule.model.GridModel;
-	import FightModule.panel.GridMediator;
+	import FightModule.panel.GridInitMediator;
+	import FightModule.panel.GridPlayMediator;
+	import FightModule.panel.GridTouchMediator;
 	import FightModule.panel.LineMediator;
 	
 	import gema.Module.core.ModuleMediator;
@@ -29,7 +31,10 @@ package FightModule
 		
 		override protected function initMediator():void
 		{
-			registerComponentMediator(view.m_GridPanel,GridMediator);
+			registerComponentMediator(view.m_GridPanel,GridInitMediator);
+			registerComponentMediator(view.m_GridPanel,GridTouchMediator);
+			registerComponentMediator(view.m_GridPanel,GridPlayMediator);
+			
 			registerComponentMediator(view.m_LinePanel,LineMediator);
 		}
 		

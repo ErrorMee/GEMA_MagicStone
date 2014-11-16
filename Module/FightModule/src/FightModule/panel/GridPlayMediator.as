@@ -1,8 +1,8 @@
 package FightModule.panel
 {
 	import flash.geom.Point;
-	import flash.utils.ByteArray;
 	
+	import FightModule.FightContext;
 	import FightModule.behaviors.CellAddBehavior;
 	import FightModule.behaviors.CellRemoveBehavior;
 	import FightModule.behaviors.MoveBehavior;
@@ -13,52 +13,43 @@ package FightModule.panel
 	import FightModule.model.GridEvent;
 	import FightModule.model.GridModel;
 	
+	import gema.Module.base.FlashEvent;
 	import gema.Module.core.ModuleMediator;
 	import gema.behavior.base.WaitBehavior;
 	import gema.behavior.core.BehaviorEvent;
 	import gema.behavior.core.LineBehavior;
 	import gema.behavior.core.ParallelBehavior;
+	import gema.configs.CellConfig;
+	import gema.configs.CellConfigInfo;
 	import gema.structure.PPoint;
-	import gema.util.AssetsUtil;
-	import gema.util.DisUtil;
-	import gema.util.PosUtil;
-	
-	import starling.events.Touch;
-	import starling.events.TouchEvent;
-	import starling.events.TouchPhase;
 	
 	/**
 	 * 创建者: errormee
 	 * 修改者:
 	 * 说明:
 	 */
-	public class GridMediator extends ModuleMediator
+	public class GridPlayMediator extends ModuleMediator
 	{
 		[Inject]
-		public var i_GridModel:GridModel;
-		[Inject]
 		public var i_AnimationModel:AnimationModel;
+		[Inject]
+		public var i_CellConfig:CellConfig;
+		[Inject]
+		public var i_GridModel:GridModel;
 		
-		public function GridMediator()
+		public function GridPlayMediator()
 		{
 			super();
 		}
+		
 		private function get view():GridPanel
 		{
 			return getViewComponent() as GridPanel;
 		}
 		
-		override protected function initView():void
-		{
-			var gridDat:ByteArray = AssetsUtil.ASSET.getByteArray("10000");
-			i_GridModel.loadData(gridDat);
-			initGrid(i_GridModel.getCells());
-		}
-		
 		override protected function initEvent():void
 		{
 			i_GridModel.addEventListener(GridEvent.GRID_CHANGE,onGridChange);
-			view.addEventListener(TouchEvent.TOUCH,onTouch);
 		}
 		
 		private function onGridChange(e:GridEvent):void
@@ -66,82 +57,12 @@ package FightModule.panel
 			changeGrid();
 		}
 		
-		private function onTouch(e:TouchEvent):void
-		{
-			var touch:Touch = e.getTouch(view);
-			if(touch)
-			{
-				var point:Point = touch.getLocation(view);
-				var cellPoint:Point = DisUtil.coordConver(point,FightConst.CELL_FULL_SIZE);
-				var gridPoint:Point = DisUtil.coordConver(cellPoint,1/FightConst.CELL_FULL_SIZE);
-				
-				if(touch.phase == TouchPhase.BEGAN)
-				{
-					view.m_Mover.x = gridPoint.x + FightConst.CELL_FULL_SIZE_HALF - view.m_Mover.width/2;
-					view.m_Mover.y = gridPoint.y + FightConst.CELL_FULL_SIZE_HALF - view.m_Mover.height/2;
-					view.addChild(view.m_Mover);
-					i_GridModel.line(cellPoint.x,cellPoint.y);
-				}
-				
-				if(touch.phase == TouchPhase.ENDED)
-				{
-					view.removeChild(view.m_Mover);
-					i_GridModel.clearLine();
-				}
-				
-				if(touch.phase == TouchPhase.MOVED)
-				{
-					if(PosUtil.inLen(point.x,point.y,gridPoint.x + FightConst.CELL_FULL_SIZE_HALF,gridPoint.y + FightConst.CELL_FULL_SIZE_HALF,FightConst.CELL_SIZE_HALF/2))
-					{
-						view.m_Mover.x = gridPoint.x + FightConst.CELL_FULL_SIZE_HALF - view.m_Mover.width/2;
-						view.m_Mover.y = gridPoint.y + FightConst.CELL_FULL_SIZE_HALF - view.m_Mover.height/2;
-						i_GridModel.line(cellPoint.x,cellPoint.y);
-					}
-				}
-			}
-		}
-		
-		public function initGrid(cells:Vector.<CellInfo>):void
-		{
-			m_WaitRemoves = [];
-			view.m_MoveLayer.removeChildren();
-			
-			var i:int = 0;
-			for(;i<cells.length;i++)
-			{
-				var cellInfo:CellInfo = cells[i];
-				var cellItem:CellItem = new CellItem(cellInfo);
-				view.m_MoveLayer.addChild(cellItem);
-			}
-		}
-		
-		public function getCellItemByInfo(cellInfo:CellInfo):CellItem
-		{
-			var i:int = 0;
-			var cellItem:CellItem;
-			for(;i<view.m_MoveLayer.numChildren;i++)
-			{
-				cellItem = view.m_MoveLayer.getChildAt(i) as CellItem;
-				if(cellItem)
-				{
-					var myCellInfo:CellInfo = cellItem.getInfo();
-					if(( myCellInfo.m_XNum == cellInfo.m_XNum ) && ( myCellInfo.m_YNum == cellInfo.m_YNum ))
-					{
-						if(m_WaitRemoves.indexOf(cellItem) == -1)
-						{
-							return cellItem;
-						}
-					}
-				}
-			}
-			return null;
-		}
-		
-		private var m_WaitRemoves:Array;
+		private var m_WaitRemoves:Array = [];
 		private var m_FightBehavior:LineBehavior;
-		public function changeGrid():void
+		
+		private function changeGrid():void
 		{
-			handleAnimationRunning(true);
+			dispatch(new FlashEvent(FightContext.EVENT_START_PLAY));
 			
 			if(m_FightBehavior)
 			{
@@ -194,7 +115,7 @@ package FightModule.panel
 			}
 			
 			var parallel:ParallelBehavior = new ParallelBehavior;
-			
+			var renderArr:Array = i_CellConfig.getGroupCellss();
 			var cellItem:CellItem;
 			var point:Point;
 			var i:int = 0;
@@ -226,6 +147,14 @@ package FightModule.panel
 						addCellInfoTemp.m_XNum = pp.m_PreX;
 						addCellInfoTemp.m_YNum = -1;
 						
+						var cellConfigInfos:Array = renderArr[addCellInfoTemp.m_Type];
+						var config:CellConfigInfo = cellConfigInfos[0];
+						var addConfig:CellConfigInfo;
+						if(cellConfigInfos.length > 1)
+						{
+							addConfig = cellConfigInfos[1];
+						}
+						addCellInfoTemp.setConfig(config,addConfig);
 						var addCellItem:CellItem = new CellItem(addCellInfoTemp);
 						
 						var addBehavior:CellAddBehavior = new CellAddBehavior(addCellItem,view.m_MoveLayer);
@@ -244,6 +173,28 @@ package FightModule.panel
 			m_FightBehavior.addBehavior(parallel);
 		}
 		
+		private function getCellItemByInfo(cellInfo:CellInfo):CellItem
+		{
+			var i:int = 0;
+			var cellItem:CellItem;
+			for(;i<view.m_MoveLayer.numChildren;i++)
+			{
+				cellItem = view.m_MoveLayer.getChildAt(i) as CellItem;
+				if(cellItem)
+				{
+					var myCellInfo:CellInfo = cellItem.getInfo();
+					if(( myCellInfo.m_XNum == cellInfo.m_XNum ) && ( myCellInfo.m_YNum == cellInfo.m_YNum ))
+					{
+						if(m_WaitRemoves.indexOf(cellItem) == -1)
+						{
+							return cellItem;
+						}
+					}
+				}
+			}
+			return null;
+		}
+		
 		private function onBehaviorEnd(e:BehaviorEvent):void
 		{
 			i_AnimationModel.clear();
@@ -253,19 +204,8 @@ package FightModule.panel
 				m_FightBehavior.onDispose();
 				m_FightBehavior = null;
 			}
-			initGrid(i_GridModel.getCells());
-			handleAnimationRunning(false);
-		}
-		
-		private function handleAnimationRunning(bool:Boolean):void
-		{
-			AnimationModel.RUNING = bool;
-			if(AnimationModel.RUNING)
-			{
-				view.removeEventListener(TouchEvent.TOUCH,onTouch);
-			}else{
-				view.addEventListener(TouchEvent.TOUCH,onTouch);
-			}
+			dispatch(new FlashEvent(FightContext.EVENT_END_PLAY));
+			m_WaitRemoves = [];
 		}
 	}
 }

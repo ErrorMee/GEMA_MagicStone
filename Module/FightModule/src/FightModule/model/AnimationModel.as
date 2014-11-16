@@ -12,8 +12,6 @@ package FightModule.model
 	 ******************************************************/
 	public class AnimationModel extends ModelActor
 	{
-		public static var RUNING:Boolean = false;
-		
 		private var m_LineCells:Vector.<CellInfo> = new Vector.<CellInfo>;
 		
 		public function line(cell:CellInfo):void

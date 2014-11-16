@@ -18,6 +18,9 @@ package FightModule
 	 */
 	public class FightContext extends ModuleContext
 	{
+		public static const EVENT_START_PLAY:String = "event_start_play";
+		public static const EVENT_END_PLAY:String = "event_end_play";
+		
 		public function FightContext(contextView:DisplayObjectContainer=null, parentInjector:IInjector=null, domain:ApplicationDomain=null)
 		{
 			super(contextView, parentInjector, domain);

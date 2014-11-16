@@ -71,7 +71,6 @@ package FightModule.model
 					cellInfo.m_YNum = y;
 					
 					cellInfo.m_Type = data.readByte();
-//					cellInfo.m_Type = 1;//todo
 					m_Cells.push(cellInfo);
 				}
 			}
@@ -150,7 +149,11 @@ package FightModule.model
 					{
 						yNum --;
 						var cellInfo:CellInfo = cells[i];
-						
+						if(cellInfo.m_IsStatble)
+						{
+							yNum = cellInfo.m_YNum;
+							continue;	
+						}
 						var pp:PPoint = new PPoint;
 						pp.m_PreX = cellInfo.m_XNum;
 						pp.m_PreY = cellInfo.m_YNum;
@@ -184,7 +187,7 @@ package FightModule.model
 				var stableType:int = getStable(cellInfo);
 				
 				var ups:Vector.<CellInfo> = new Vector.<CellInfo>;
-				if(stableType != FightConst.NO_UNSTABLE)
+				if(stableType != FightConst.STABLE)
 				{
 					hasChange = true;
 					ups = getCellsByXNum(cellInfo.m_XNum,0,cellInfo.m_YNum);
@@ -222,6 +225,10 @@ package FightModule.model
 				for(;upsi >= 0;upsi--)
 				{
 					var cell:CellInfo = ups[upsi];
+					if(cell.m_IsStatble)
+					{
+						break;
+					}
 					pp = new PPoint;
 					pp.m_PreX = cell.m_XNum;
 					pp.m_PreY = cell.m_YNum;
@@ -275,6 +282,11 @@ package FightModule.model
 			var leftStable:Boolean = false;
 			var rightStable:Boolean = false;
 			
+			if(cellInfo.m_IsStatble)
+			{
+				return FightConst.STABLE;
+			}
+			
 			if(!cellInfo.m_XNum)
 			{
 				leftStable = true;
@@ -319,7 +331,7 @@ package FightModule.model
 				return FightConst.RIGHT_UNSTABLE;
 			}
 			
-			return FightConst.NO_UNSTABLE;
+			return FightConst.STABLE;
 		}
 		
 		private function fill():void
@@ -336,8 +348,8 @@ package FightModule.model
 				{
 					fillFlag = true;
 					cell = new CellInfo;
-//					cell.m_Type = 1;//todo cell.m_Type =  Math.random()*6;
-					cell.m_Type =  Math.random()*6;
+					cell.m_Type = 2;//todo cell.m_Type =  Math.random()*6;
+//					cell.m_Type =  Math.random()*6;
 					cell.m_XNum = leahX;
 					cell.m_YNum = 0;
 					fillOne(cell);

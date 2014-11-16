@@ -13,8 +13,10 @@
     <classEntry path="FightModule.behaviors.CellAddBehavior"/>
     <classEntry path="FightModule.FightView"/>
     <classEntry path="FightModule.FightContext"/>
-    <classEntry path="FightModule.panel.GridMediator"/>
+    <classEntry path="FightModule.panel.GridInitMediator"/>
     <classEntry path="FightModule.panel.LineMediator"/>
+    <classEntry path="FightModule.panel.GridPlayMediator"/>
+    <classEntry path="FightModule.panel.GridTouchMediator"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>
