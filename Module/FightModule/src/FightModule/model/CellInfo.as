@@ -20,6 +20,7 @@ package FightModule.model
 		public var m_AddConfig:CellConfigInfo;
 		
 		public var m_IsStatble:Boolean = false;
+		public var m_IsLink:Boolean = false;
 		
 		public function setConfig(config:CellConfigInfo,addConfig:CellConfigInfo):void
 		{
@@ -33,6 +34,19 @@ package FightModule.model
 				if(m_AddConfig && m_AddConfig.stable)
 				{
 					m_IsStatble = true;
+				}
+			}
+			
+			if(m_Config.link)
+			{
+				if(m_AddConfig)
+				{
+					if(m_AddConfig.link)
+					{
+						m_IsLink = true;
+					}
+				}else{
+					m_IsLink = true;
 				}
 			}
 		}

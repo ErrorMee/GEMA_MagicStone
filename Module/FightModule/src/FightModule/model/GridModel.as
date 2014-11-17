@@ -2,6 +2,7 @@ package FightModule.model
 {
 	import flash.utils.ByteArray;
 	
+	import gema.configs.CellConfig;
 	import gema.structure.ModelActor;
 	import gema.structure.PPoint;
 	
@@ -17,6 +18,8 @@ package FightModule.model
 	{
 		[Inject]
 		public var i_AnimationModel:AnimationModel;
+		[Inject]
+		public var i_CellConfig:CellConfig;
 		
 		public var m_ID:int;
 		
@@ -80,7 +83,7 @@ package FightModule.model
 		public function line(x:int,y:int):void
 		{
 			var cellInfo:CellInfo = getCell(x,y);
-			if(cellInfo && cellInfo != m_LastCell)
+			if(cellInfo && cellInfo != m_LastCell && cellInfo.m_IsLink)
 			{
 				if(m_LineCells.length)
 				{
@@ -348,8 +351,10 @@ package FightModule.model
 				{
 					fillFlag = true;
 					cell = new CellInfo;
-					cell.m_Type = 2;//todo cell.m_Type =  Math.random()*6;
-//					cell.m_Type =  Math.random()*6;
+//					cell.m_Type = 2;
+					cell.m_Type = int(Math.random()*5) + 1;
+//					cell.m_Type = int(Math.random()*9) + 1;
+//					cell.m_Type =  int(Math.random()*(i_CellConfig.getGroupCellss().length - 1)) + 1;
 					cell.m_XNum = leahX;
 					cell.m_YNum = 0;
 					fillOne(cell);
