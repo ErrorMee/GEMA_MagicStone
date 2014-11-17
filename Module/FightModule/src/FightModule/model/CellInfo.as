@@ -19,8 +19,10 @@ package FightModule.model
 		public var m_Config:CellConfigInfo;
 		public var m_AddConfig:CellConfigInfo;
 		
-		public var m_IsStatble:Boolean = false;
-		public var m_IsLink:Boolean = false;
+		public var link:Boolean = false;
+		public var stable:Boolean = false;
+		public var involve_atk:int = 0;
+		public var involve_def:int = 0;
 		
 		public function setConfig(config:CellConfigInfo,addConfig:CellConfigInfo):void
 		{
@@ -29,11 +31,11 @@ package FightModule.model
 			
 			if(m_Config.stable)
 			{
-				m_IsStatble = true;
+				stable = true;
 			}else{
 				if(m_AddConfig && m_AddConfig.stable)
 				{
-					m_IsStatble = true;
+					stable = true;
 				}
 			}
 			
@@ -43,11 +45,19 @@ package FightModule.model
 				{
 					if(m_AddConfig.link)
 					{
-						m_IsLink = true;
+						link = true;
 					}
 				}else{
-					m_IsLink = true;
+					link = true;
 				}
+			}
+			
+			involve_atk = config.involve_atk;
+			involve_def = config.involve_def;
+			if(addConfig)
+			{
+				involve_atk += addConfig.involve_atk;
+				involve_def += addConfig.involve_def;
 			}
 		}
 		
@@ -60,6 +70,11 @@ package FightModule.model
 			
 			gridInfo.m_Config = m_Config;
 			gridInfo.m_AddConfig = m_AddConfig;
+			
+			gridInfo.link = link;
+			gridInfo.stable = stable;
+			gridInfo.involve_atk = involve_atk;
+			gridInfo.involve_def = involve_def;
 			
 			return gridInfo;
 		}

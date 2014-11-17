@@ -6,6 +6,7 @@ package FightModule.panel
 	import FightModule.element.CellItem;
 	import FightModule.model.CellInfo;
 	import FightModule.model.GridModel;
+	import FightModule.model.func.GridModelLoadDataFunc;
 	
 	import gema.Module.base.FlashEvent;
 	import gema.Module.core.ModuleMediator;
@@ -37,8 +38,8 @@ package FightModule.panel
 		override protected function initView():void
 		{
 			var gridDat:ByteArray = AssetsUtil.ASSET.getByteArray("10000");
-			i_GridModel.loadData(gridDat);
-			initGrid(i_GridModel.getCells());
+			GridModelLoadDataFunc.loadData(i_GridModel,gridDat);
+			initGrid(i_GridModel.m_Cells);
 		}
 		
 		override protected function initEvent():void
@@ -48,7 +49,7 @@ package FightModule.panel
 		
 		private function onPalyEnd(e:FlashEvent):void
 		{
-			initGrid(i_GridModel.getCells());
+			initGrid(i_GridModel.m_Cells);
 		}
 		
 		private function initGrid(cells:Vector.<CellInfo>):void

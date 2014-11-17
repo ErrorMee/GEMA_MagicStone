@@ -1,5 +1,7 @@
 package gema.structure
 {
+	import flash.events.Event;
+	
 	import gema.Module.interfaces.IDisposeObject;
 	
 	import org.robotlegs.mvcs.Actor;
@@ -24,6 +26,11 @@ package gema.structure
 		public function removeEventListener(type:String,listener:Function):void
 		{
 			_eventDispatcher.removeEventListener(type,listener);
+		}
+		
+		public function publicDispatch(event:Event):Boolean
+		{
+			return dispatch(event);
 		}
 		
 		public function clear():void

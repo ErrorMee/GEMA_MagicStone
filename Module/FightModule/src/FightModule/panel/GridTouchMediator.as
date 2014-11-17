@@ -5,6 +5,8 @@ package FightModule.panel
 	import FightModule.FightContext;
 	import FightModule.model.FightConst;
 	import FightModule.model.GridModel;
+	import FightModule.model.func.GridModelClearLineFunc;
+	import FightModule.model.func.GridModelLineFunc;
 	
 	import gema.Module.base.FlashEvent;
 	import gema.Module.core.ModuleMediator;
@@ -66,13 +68,13 @@ package FightModule.panel
 					view.m_Mover.x = gridPoint.x + FightConst.CELL_FULL_SIZE_HALF - view.m_Mover.width/2;
 					view.m_Mover.y = gridPoint.y + FightConst.CELL_FULL_SIZE_HALF - view.m_Mover.height/2;
 					view.addChild(view.m_Mover);
-					i_GridModel.line(cellPoint.x,cellPoint.y);
+					GridModelLineFunc.line(i_GridModel,cellPoint.x,cellPoint.y);
 				}
 				
 				if(touch.phase == TouchPhase.ENDED)
 				{
 					view.removeChild(view.m_Mover);
-					i_GridModel.clearLine();
+					GridModelClearLineFunc.clearLine(i_GridModel);
 				}
 				
 				if(touch.phase == TouchPhase.MOVED)
@@ -81,7 +83,7 @@ package FightModule.panel
 					{
 						view.m_Mover.x = gridPoint.x + FightConst.CELL_FULL_SIZE_HALF - view.m_Mover.width/2;
 						view.m_Mover.y = gridPoint.y + FightConst.CELL_FULL_SIZE_HALF - view.m_Mover.height/2;
-						i_GridModel.line(cellPoint.x,cellPoint.y);
+						GridModelLineFunc.line(i_GridModel,cellPoint.x,cellPoint.y);
 					}
 				}
 			}

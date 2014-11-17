@@ -17,6 +17,12 @@
     <classEntry path="FightModule.panel.LineMediator"/>
     <classEntry path="FightModule.panel.GridPlayMediator"/>
     <classEntry path="FightModule.panel.GridTouchMediator"/>
+    <classEntry path="FightModule.model.func.GridModelLoadDataFunc"/>
+    <classEntry path="FightModule.model.func.GridModelLineFunc"/>
+    <classEntry path="FightModule.model.func.GridModelClearLineFunc"/>
+    <classEntry path="FightModule.model.func.GridModelFallFunc"/>
+    <classEntry path="FightModule.model.func.GridModelStableFunc"/>
+    <classEntry path="FightModule.model.func.GridModelFillFunc"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

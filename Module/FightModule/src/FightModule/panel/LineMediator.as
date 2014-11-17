@@ -51,7 +51,7 @@ package FightModule.panel
 			g.clear();
 			g.lineStyle(1,0xEE5C42,1,true,LineScaleMode.NONE,CapsStyle.ROUND);
 			
-			var lineCells:Vector.<CellInfo> = i_GridModel.getLineCells();
+			var lineCells:Vector.<CellInfo> = i_GridModel.m_LineCells;
 			if(lineCells)
 			{
 				var i:int;
