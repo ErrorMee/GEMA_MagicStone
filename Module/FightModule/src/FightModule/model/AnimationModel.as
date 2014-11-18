@@ -12,6 +12,8 @@ package FightModule.model
 	 ******************************************************/
 	public class AnimationModel extends ModelActor
 	{
+		
+		
 		private var m_LineCells:Vector.<CellInfo> = new Vector.<CellInfo>;
 		
 		public function line(cell:CellInfo):void
@@ -23,6 +25,8 @@ package FightModule.model
 		{
 			return m_LineCells;
 		}
+		
+		
 		
 		private var m_Moves:Array = [];
 		public function addMove(arr:Array):void
@@ -47,6 +51,8 @@ package FightModule.model
 		{
 			return m_Moves;
 		}
+		
+		
 		
 		override public function clear():void
 		{
