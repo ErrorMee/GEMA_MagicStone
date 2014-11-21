@@ -23,6 +23,8 @@
     <classEntry path="FightModule.model.func.GridModelFallFunc"/>
     <classEntry path="FightModule.model.func.GridModelStableFunc"/>
     <classEntry path="FightModule.model.func.GridModelFillFunc"/>
+    <classEntry path="FightModule.model.func.GridModelInvolveFunc"/>
+    <classEntry path="FightModule.model.WallInfo"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

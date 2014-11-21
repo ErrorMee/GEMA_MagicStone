@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<wallConfig>
+	<!-- id:关键key -->
+	<!-- view:显示ID -->
+	<!-- long:大墙影响斜线 -->
+	<!-- stable:0不稳定 1稳定 -->
+	<!-- involve:是否受牵连 （0 不会牵连）-->
+	<!-- involve_def:牵连抵御 （0 不接受牵连） -->
+	<!-- bomb:消耗炸弹数量 0不可炸 -->
+	<wall id="20000" name="空墙" view="21000" long="-1" stable="0" involve="0" involve_def="0" bomb="0" desc=""/>
+	
+	<wall id="20010" name="长钢板" view="20010" long="1" stable="1" involve="0" involve_def="0" bomb="0" desc=""/>
+	<wall id="20011" name="短钢板" view="20011" long="0" stable="1" involve="0" involve_def="0" bomb="0" desc=""/>
+	
+	<wall id="20020" name="长冰块" view="20020" long="1" stable="0" involve="1" involve_def="1" bomb="1" desc=""/>
+	<wall id="20021" name="短冰块" view="20021" long="0" stable="0" involve="1" involve_def="1" bomb="1" desc=""/>
+	
+	<wall id="20030" name="长玻璃" view="20030" long="1" stable="1" involve="1" involve_def="1" bomb="1" desc=""/>
+	<wall id="20031" name="短玻璃" view="20031" long="0" stable="1" involve="1" involve_def="1" bomb="1" desc=""/>
+	
+</wallConfig>

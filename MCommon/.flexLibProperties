@@ -23,6 +23,8 @@
     <classEntry path="gema.Module.core.ModuleLoader"/>
     <classEntry path="gema.Module.layer.LayerMgr"/>
     <classEntry path="gema.structure.ModelActor"/>
+    <classEntry path="gema.configs.WallConfig"/>
+    <classEntry path="gema.configs.WallConfigInfo"/>
   </includeClasses>
   <includeResources>
     <resourceEntry destPath="fonts/SourceSansPro-Regular.ttf" sourcePath="fonts/SourceSansPro-Regular.ttf"/>

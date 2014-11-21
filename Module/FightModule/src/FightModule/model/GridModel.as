@@ -26,8 +26,15 @@ package FightModule.model
 		
 		public var m_LastCell:CellInfo;
 		
+		public var m_Walls:Vector.<WallInfo> = new Vector.<WallInfo>;
+		
 		public function getCell(x:int,y:int):CellInfo
 		{
+			if(x < 0 || x >= FightConst.X_NUM || y < 0 || y >= FightConst.X_NUM)
+			{
+				return null;
+			}
+			
 			var i:int = 0;
 			for(;i<m_Cells.length;i++)
 			{

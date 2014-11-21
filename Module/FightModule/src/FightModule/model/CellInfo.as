@@ -23,6 +23,7 @@ package FightModule.model
 		public var stable:Boolean = false;
 		public var involve_atk:int = 0;
 		public var involve_def:int = 0;
+		public var involve:Boolean = false;
 		
 		public function setConfig(config:CellConfigInfo,addConfig:CellConfigInfo):void
 		{
@@ -58,6 +59,10 @@ package FightModule.model
 			{
 				involve_atk += addConfig.involve_atk;
 				involve_def += addConfig.involve_def;
+			}
+			if(involve_def)
+			{
+				involve = true;
 			}
 		}
 		

@@ -16,6 +16,8 @@ package Game
 	import gema.configs.CellConfigInfo;
 	import gema.configs.ModuleConfig;
 	import gema.configs.ModuleConfigInfo;
+	import gema.configs.WallConfig;
+	import gema.configs.WallConfigInfo;
 	import gema.structure.ModelActor;
 	import gema.structure.PPoint;
 	import gema.util.PosUtil;
@@ -35,8 +37,13 @@ package Game
 			ModuleConfigInfo;
 			CellConfig;
 			CellConfigInfo;
+			WallConfig;
+			WallConfigInfo;
+			
 			Behavior;
 			ParallelBehavior;
+			LineBehavior;
+			WaitBehavior;
 			
 			Module;
 			ModuleContext;
@@ -47,14 +54,9 @@ package Game
 			AnchorLayoutData;
 			AnchorLayout;
 			
-			LineBehavior;
-			WaitBehavior;
-			
 			StrUtil;
 			PosUtil;
-			
 			PPoint;
-			
 			ModelActor;
 		}
 	}

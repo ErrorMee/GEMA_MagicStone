@@ -35,5 +35,10 @@ package gema.configs
 		{
 			return id;
 		}
+		
+		public function getSortIndex():int
+		{
+			return int(id);
+		}
 	}
 }

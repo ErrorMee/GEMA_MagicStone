@@ -6,5 +6,6 @@
 	<hungry path="assets/configs/" zip="false">
 		<file id="module.xml" asyn="0" className="gema.configs.ModuleConfig" />
 		<file id="cell.xml" asyn="0" className="gema.configs.CellConfig" />
+		<file id="wall.xml" asyn="0" className="gema.configs.WallConfig" />
 	</hungry>
 </root>
